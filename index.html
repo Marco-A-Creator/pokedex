@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./styles/pokemonsters.css">
 
     <script src="./scripts/templates.js" defer></script>
     <script src="./scripts/pokemon.js" defer></script>
@@ -22,6 +23,49 @@
 
 <body>
 
-</body>
+    <body onload="initPokemonDatabase()">
+        <header>
+            <div class="header_wrapper">
+                <a href="#/index.html"><img src="./assets/icons/favicon.ico" alt="Pokeball">
+                    <h1>Pokédex</h1>
+                </a>
+                <div class="search desktop">
+                    <input data-id="search-input" id="pokemonSearch" oninput="searchPokemon()" type="text" value=""
+                        placeholder="Pokémon Namen eingeben (min. 3 Buchstaben)">
+                </div>
+            </div>
+        </header>
+
+        <main data-id="content">
+            <section id="fetchPokemon" class="fetch_pokemon">
+
+            </section>
+
+            <dialog data-id="dialog" id="pokemonDetailsDialog" class="pokemon_details_dialog title_style"
+                onclick="closeDialog('pokemonDetailsDialog')">
+            </dialog>
+        </main>
+
+        <footer>
+            <div class="footer_wrapper">
+                <p>© created by Marco Abbt</p>
+                <ul class="footer_links">
+                    <li>
+                        <a href="#">Impressum</a>
+                    </li>
+                    <li>
+                        <a href="#">Datenschutz</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+
+        <nav class="mobile_nav">
+            <div class="search">
+                <input data-id="search-input-mobile" id="pokemonSearchMobile" oninput="searchPokemon()" type="text"
+                    value="" placeholder="Pokémon (min. 3 Buchstaben)">
+            </div>
+        </nav>
+    </body>
 
 </html>

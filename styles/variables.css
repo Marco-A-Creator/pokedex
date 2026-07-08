@@ -1,7 +1,7 @@
 :root {
-    --bg-primary: rgb(15, 17, 23);
-    --bg-secondary: rgb(23, 27, 36);
-    --panel-bg: rgba(24, 28, 38, 0.92);
+    --bg-primary: rgb(155, 60, 60);
+    --bg-secondary: rgb(165, 75, 75);
+    --panel-bg: rgba(161, 30, 30, 0.92);
     --accent-primary: rgb(255, 203, 5);
     --accent-secondary: rgb(59, 76, 202);
     --text-primary: rgb(245, 247, 250);

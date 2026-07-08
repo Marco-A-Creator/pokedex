@@ -1,0 +1,2250 @@
+.pokemon_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    padding: 10px 5px;
+    border-radius: 32px;
+    font-family: Consolas, 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    background-color: rgb(46, 44, 44);
+}
+
+.pokemon_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    color: yellow;
+}
+
+.pokemon_info h2 {
+    font-family: 'Orbitron', Consolas, monospace;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+
+.pokemon_info h2,
+.pokemon_info p {
+    text-shadow:
+        -1px -1px 0 rgba(0, 0, 0, 0.9),
+        1px -1px 0 rgba(0, 0, 0, 0.9),
+        -1px 1px 0 rgba(0, 0, 0, 0.9),
+        1px 1px 0 rgba(0, 0, 0, 0.9),
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.pokemon_img {
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.pokemon_img img {
+    width: 100%;
+    max-width: 300px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .9)) drop-shadow(0 0 15px rgba(0, 0, 0, .8)) drop-shadow(0 0 30px rgba(0, 0, 0, .7)) drop-shadow(0 0 60px rgba(0, 0, 0, .5));
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.improve_visibility {
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1)) drop-shadow(0 0 6px rgba(0, 0, 0, .95)) drop-shadow(0 0 12px rgba(0, 0, 0, .85));
+}
+
+.pokemon_details_dialog[open] {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100vw - 24px);
+    max-width: 1280px;
+    max-height: calc(100dvh - 24px);
+    margin: 0;
+    padding: 0;
+    border-radius: 24px;
+    background: none;
+    border: none;
+    overflow: hidden;
+}
+
+.pokemon_details_dialog[open]::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.pokemon_details_dialog {
+    scrollbar-width: none;
+}
+
+.pokemon_details_dialog::-webkit-scrollbar {
+    display: none;
+}
+
+.pokemon_dialog,
+.pokemon_evolution_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 24px;
+    font-family: Consolas, 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    line-height: 1.45;
+}
+
+.pokemon_dialog {
+    max-width: 1280px;
+    max-height: calc(100dvh - 24px);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.title_shadow {
+    text-shadow:
+        -1px -1px 0 rgba(0, 0, 0, 0.9),
+        1px -1px 0 rgba(0, 0, 0, 0.9),
+        -1px 1px 0 rgba(0, 0, 0, 0.9),
+        1px 1px 0 rgba(0, 0, 0, 0.9),
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.center_elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon_dialog_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    gap: 10px;
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
+
+.interaction_buttons_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px 10px 30px;
+}
+
+.dialog_top_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 36px;
+}
+
+.dialog_pokemon_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 500px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.dialog_pokemon_info>p {
+    margin-top: 4px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-shadow:
+        -1px -1px 0 rgba(0, 0, 0, 0.9),
+        1px -1px 0 rgba(0, 0, 0, 0.9),
+        -1px 1px 0 rgba(0, 0, 0, 0.9),
+        1px 1px 0 rgba(0, 0, 0, 0.9),
+        0 2px 4px rgba(0, 0, 0, 0.9),
+        0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.dialog_pokemon_info h2,
+.evolution_pokemon_content h2 {
+    font-family: 'Orbitron', Consolas, monospace;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.dialog_pokemon_info h2 {
+    margin-top: 8px;
+    font-size: clamp(2.4rem, 4.2vw, 4rem);
+    line-height: 1;
+}
+
+.dialog_pokemon_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    margin: 22px 0 10px;
+}
+
+.dialog_pokemon_img img {
+    width: 100%;
+    max-width: 350px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 15px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 60px rgba(0, 0, 0, 0.5));
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.dialog_pokemon_types,
+.pokemon_types,
+.evolution_pokemon_types {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.dialog_pokemon_types img {
+    width: 58px;
+    height: 58px;
+}
+
+.dialog_pokemon_description {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(6, 2, 0, 0.58);
+}
+
+.dialog_pokemon_description h3 {
+    font-family: 'Rajdhani', Consolas, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+.dialog_pokemon_data {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex: 1 1 470px;
+    min-width: 320px;
+    max-width: 620px;
+    gap: 18px;
+    padding-top: 4px;
+}
+
+.pokemon_data_top,
+.pokemon_data_bottom {
+    width: 100%;
+    padding: 14px 16px 16px;
+    border-radius: 12px;
+}
+
+.pokemon_table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.info_table {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.info_table td {
+    padding: 10px 0 10px 14px;
+    color: rgb(245, 255, 246);
+    vertical-align: top;
+    font-family: 'Rajdhani', Consolas, monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.85);
+}
+
+.info_table tr:last-child td {
+    border-bottom: none;
+}
+
+.info_table td:first-child {
+    width: 25%;
+}
+
+.stats_table td {
+    padding: 3px 8px;
+    color: rgb(245, 255, 246);
+    vertical-align: middle;
+    font-family: 'Rajdhani', Consolas, monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.85);
+}
+
+.stats_table td:first-child {
+    width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stats_table.stat_value {
+    width: 54px;
+    text-align: right;
+}
+
+.stats_table.stat_max {
+    width: 54px;
+    text-align: right;
+}
+
+.stat_bar_wrapper {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.38);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.75);
+}
+
+.stat_bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.stats_sum td {
+    padding-top: 14px;
+}
+
+.pokemon_evolution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    margin-top: 4px;
+    padding: 14px 20px 10px;
+    border-radius: 14px;
+}
+
+.pokemon_evolution h4 {
+    align-self: center;
+    font-family: 'Orbitron', Consolas, monospace;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.pokemon_evolution_cards {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+.evolution_step {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.pokemon_evolution_card {
+    width: 190px;
+    min-height: 178px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 150ms ease,
+        box-shadow 150ms ease,
+        border-color 150ms ease;
+}
+
+.evolution_pokemon_content p {
+    font-size: 0.88rem;
+    line-height: 1.2;
+}
+
+.evolution_pokemon_content h2 {
+    margin: 2px 0;
+    font-size: 1.35rem;
+}
+
+.evolution_pokemon_img {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    margin: 6px 0;
+}
+
+.evolution_pokemon_img img {
+    width: 100%;
+    max-width: 150px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 15px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 60px rgba(0, 0, 0, 0.5));
+}
+
+.evolution_pokemon_types img {
+    width: 34px;
+    height: 34px;
+}
+
+.evolution_arrow {
+    font-size: 56px;
+    text-shadow:
+        -1px -1px 0 rgba(0, 0, 0, .95),
+        1px -1px 0 rgba(0, 0, 0, .95),
+        -1px 1px 0 rgba(0, 0, 0, .95),
+        1px 1px 0 rgba(0, 0, 0, .95),
+        0 0 6px currentColor,
+        0 0 14px currentColor;
+    filter:
+        drop-shadow(0 0 8px rgba(0, 0, 0, .8)) drop-shadow(0 0 20px rgba(0, 0, 0, .5));
+}
+
+.evolution_tree_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.evolution_branch_step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.evolution_branch_children {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.row_direction {
+    flex-direction: row;
+}
+
+.evolution_leaf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.type_normal {
+    border: 2px solid rgb(168, 167, 122);
+    background-image: url(../assets/images/normal_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_normal {
+    border: 2px solid rgb(168, 167, 122);
+    box-shadow:
+        0 0 24px rgba(168, 167, 122, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/normal_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_normal p {
+    color: rgb(241, 239, 208);
+}
+
+.dialog_type_normal h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_normal,
+.type_normal h2,
+.evolution_arrow_normal {
+    color: rgb(216, 214, 163);
+}
+
+.icon_normal {
+    filter: drop-shadow(0 0 10px rgba(168, 167, 122, 0.45));
+}
+
+.border_normal {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(168, 167, 122, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(168, 167, 122, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_normal {
+    border: 1px solid rgba(168, 167, 122, 0.45);
+}
+
+.info_table_normal td {
+    border-bottom: 1px solid rgba(168, 167, 122, 0.28);
+}
+
+.info_table_normal td:first-child {
+    border-right: 1px solid rgba(168, 167, 122, 0.34);
+}
+
+.stat_bar_wrapper_normal {
+    border: 1px solid rgba(168, 167, 122, 0.45);
+}
+
+.stat_bar_normal {
+    background: linear-gradient(90deg, rgb(150, 149, 105), rgb(216, 214, 163));
+    box-shadow: 0 0 12px rgba(168, 167, 122, 0.65);
+}
+
+.stats_sum_normal td {
+    border-top: 1px solid rgba(168, 167, 122, 0.28);
+}
+
+.stats_sum_normal .stat_value {
+    color: rgb(216, 214, 163);
+}
+
+.evolution_normal {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(168, 167, 122, 0.48);
+    box-shadow: inset 0 0 46px rgba(168, 167, 122, 0.08);
+}
+
+.card_hover_normal:hover {
+    transform: scale(1.01);
+    border-color: rgba(216, 214, 163, 0.75);
+    box-shadow:
+        0 0 28px rgba(168, 167, 122, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(168, 167, 122, 0.12);
+}
+
+.card_hover_normal:hover img {
+    filter: drop-shadow(0 10px 12px rgba(168, 167, 122, 0.55));
+}
+
+.type_fire {
+    border: 2px solid rgb(238, 129, 48);
+    background-image: url(../assets/images/flame_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_fire {
+    border: 2px solid rgb(238, 129, 48);
+    box-shadow:
+        0 0 24px rgba(238, 129, 48, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/flame_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_fire p {
+    color: rgb(255, 219, 179);
+}
+
+.dialog_type_fire h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_fire,
+.type_fire h2,
+.evolution_arrow_fire {
+    color: rgb(255, 138, 0);
+}
+
+.icon_fire {
+    filter: drop-shadow(0 0 10px rgba(255, 80, 20, 0.45));
+}
+
+.border_fire {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(238, 129, 48, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(255, 68, 20, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_fire {
+    border: 1px solid rgba(238, 129, 48, 0.45);
+}
+
+.info_table_fire td {
+    border-bottom: 1px solid rgba(238, 129, 48, 0.28);
+}
+
+.info_table_fire td:first-child {
+    border-right: 1px solid rgba(238, 129, 48, 0.34);
+}
+
+.stat_bar_wrapper_fire {
+    border: 1px solid rgba(238, 129, 48, 0.45);
+}
+
+.stat_bar_fire {
+    background: linear-gradient(90deg, rgb(255, 55, 23), rgb(255, 138, 0));
+    box-shadow: 0 0 12px rgba(255, 80, 20, 0.65);
+}
+
+.stats_sum_fire td {
+    border-top: 1px solid rgba(238, 129, 48, 0.28);
+}
+
+.stats_sum_fire .stat_value {
+    color: rgb(255, 138, 0);
+}
+
+.evolution_fire {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(238, 129, 48, 0.48);
+    box-shadow: inset 0 0 46px rgba(255, 68, 20, 0.08);
+}
+
+.card_hover_fire:hover {
+    transform: scale(1.01);
+    border-color: rgba(255, 138, 0, 0.75);
+    box-shadow:
+        0 0 28px rgba(255, 80, 20, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(255, 68, 20, 0.12);
+}
+
+.card_hover_fire:hover img {
+    filter: drop-shadow(0 10px 12px rgba(255, 80, 20, 0.55));
+}
+
+.type_water {
+    border: 2px solid rgb(99, 144, 240);
+    background-image: url(../assets/images/water_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_water {
+    border: 2px solid rgb(99, 144, 240);
+    box-shadow:
+        0 0 24px rgba(99, 144, 240, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/water_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_water p {
+    color: rgb(207, 234, 255);
+}
+
+.dialog_type_water h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_water,
+.type_water h2,
+.evolution_arrow_water {
+    color: rgb(98, 183, 255);
+}
+
+.icon_water {
+    filter: drop-shadow(0 0 10px rgba(80, 150, 255, 0.45));
+}
+
+.border_water {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(99, 144, 240, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(80, 150, 255, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_water {
+    border: 1px solid rgba(99, 144, 240, 0.45);
+}
+
+.info_table_water td {
+    border-bottom: 1px solid rgba(99, 144, 240, 0.28);
+}
+
+.info_table_water td:first-child {
+    border-right: 1px solid rgba(99, 144, 240, 0.34);
+}
+
+.stat_bar_wrapper_water {
+    border: 1px solid rgba(99, 144, 240, 0.45);
+}
+
+.stat_bar_water {
+    background: linear-gradient(90deg, rgb(42, 117, 255), rgb(98, 183, 255));
+    box-shadow: 0 0 12px rgba(80, 150, 255, 0.65);
+}
+
+.stats_sum_water td {
+    border-top: 1px solid rgba(99, 144, 240, 0.28);
+}
+
+.stats_sum_water .stat_value {
+    color: rgb(98, 183, 255);
+}
+
+.evolution_water {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(99, 144, 240, 0.48);
+    box-shadow: inset 0 0 46px rgba(80, 150, 255, 0.08);
+}
+
+.card_hover_water:hover {
+    transform: scale(1.01);
+    border-color: rgba(98, 183, 255, 0.75);
+    box-shadow:
+        0 0 28px rgba(80, 150, 255, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(80, 150, 255, 0.12);
+}
+
+.card_hover_water:hover img {
+    filter: drop-shadow(0 10px 12px rgba(80, 150, 255, 0.55));
+}
+
+.type_electric {
+    border: 2px solid rgb(247, 208, 44);
+    background-image: url(../assets/images/electric_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_electric {
+    border: 2px solid rgb(247, 208, 44);
+    box-shadow:
+        0 0 24px rgba(247, 208, 44, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/electric_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_electric p {
+    color: rgb(255, 243, 176);
+}
+
+.dialog_type_electric h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_electric,
+.type_electric h2,
+.evolution_arrow_electric {
+    color: rgb(255, 216, 61);
+}
+
+.icon_electric {
+    filter: drop-shadow(0 0 10px rgba(255, 216, 61, 0.45));
+}
+
+.border_electric {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(247, 208, 44, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(255, 216, 61, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_electric {
+    border: 1px solid rgba(247, 208, 44, 0.45);
+}
+
+.info_table_electric td {
+    border-bottom: 1px solid rgba(247, 208, 44, 0.28);
+}
+
+.info_table_electric td:first-child {
+    border-right: 1px solid rgba(247, 208, 44, 0.34);
+}
+
+.stat_bar_wrapper_electric {
+    border: 1px solid rgba(247, 208, 44, 0.45);
+}
+
+.stat_bar_electric {
+    background: linear-gradient(90deg, rgb(255, 190, 20), rgb(255, 238, 80));
+    box-shadow: 0 0 12px rgba(255, 216, 61, 0.65);
+}
+
+.stats_sum_electric td {
+    border-top: 1px solid rgba(247, 208, 44, 0.28);
+}
+
+.stats_sum_electric .stat_value {
+    color: rgb(255, 216, 61);
+}
+
+.evolution_electric {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(247, 208, 44, 0.48);
+    box-shadow: inset 0 0 46px rgba(255, 216, 61, 0.08);
+}
+
+.card_hover_electric:hover {
+    transform: scale(1.01);
+    border-color: rgba(255, 216, 61, 0.75);
+    box-shadow:
+        0 0 28px rgba(255, 216, 61, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(255, 216, 61, 0.12);
+}
+
+.card_hover_electric:hover img {
+    filter: drop-shadow(0 10px 12px rgba(255, 216, 61, 0.55));
+}
+
+.type_grass {
+    border: 2px solid rgb(122, 199, 76);
+    background-image: url(../assets/images/grass_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_grass {
+    border: 2px solid rgb(122, 199, 76);
+    box-shadow:
+        0 0 24px rgba(122, 199, 76, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/grass_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_grass p {
+    color: rgb(217, 255, 208);
+}
+
+.dialog_type_grass h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_grass,
+.type_grass h2,
+.evolution_arrow_grass {
+    color: rgb(142, 232, 95);
+}
+
+.icon_grass {
+    filter: drop-shadow(0 0 10px rgba(110, 220, 80, 0.45));
+}
+
+.border_grass {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(122, 199, 76, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(110, 220, 80, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_grass {
+    border: 1px solid rgba(122, 199, 76, 0.45);
+}
+
+.info_table_grass td {
+    border-bottom: 1px solid rgba(122, 199, 76, 0.28);
+}
+
+.info_table_grass td:first-child {
+    border-right: 1px solid rgba(122, 199, 76, 0.34);
+}
+
+.stat_bar_wrapper_grass {
+    border: 1px solid rgba(122, 199, 76, 0.45);
+}
+
+.stat_bar_grass {
+    background: linear-gradient(90deg, rgb(70, 180, 55), rgb(142, 232, 95));
+    box-shadow: 0 0 12px rgba(110, 220, 80, 0.65);
+}
+
+.stats_sum_grass td {
+    border-top: 1px solid rgba(122, 199, 76, 0.28);
+}
+
+.stats_sum_grass .stat_value {
+    color: rgb(142, 232, 95);
+}
+
+.evolution_grass {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(122, 199, 76, 0.48);
+    box-shadow: inset 0 0 46px rgba(110, 220, 80, 0.08);
+}
+
+.card_hover_grass:hover {
+    transform: scale(1.01);
+    border-color: rgba(142, 232, 95, 0.75);
+    box-shadow:
+        0 0 28px rgba(110, 220, 80, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(110, 220, 80, 0.12);
+}
+
+.card_hover_grass:hover img {
+    filter: drop-shadow(0 10px 12px rgba(110, 220, 80, 0.55));
+}
+
+.type_ice {
+    border: 2px solid rgb(150, 217, 214);
+    background-image: url(../assets/images/ice_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_ice {
+    border: 2px solid rgb(150, 217, 214);
+    box-shadow:
+        0 0 24px rgba(150, 217, 214, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/ice_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_ice p {
+    color: rgb(226, 253, 255);
+}
+
+.dialog_type_ice h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_ice,
+.type_ice h2,
+.evolution_arrow_ice {
+    color: rgb(159, 250, 255);
+}
+
+.icon_ice {
+    filter: drop-shadow(0 0 10px rgba(130, 230, 255, 0.45));
+}
+
+.border_ice {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(150, 217, 214, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(130, 230, 255, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_ice {
+    border: 1px solid rgba(150, 217, 214, 0.45);
+}
+
+.info_table_ice td {
+    border-bottom: 1px solid rgba(150, 217, 214, 0.28);
+}
+
+.info_table_ice td:first-child {
+    border-right: 1px solid rgba(150, 217, 214, 0.34);
+}
+
+.stat_bar_wrapper_ice {
+    border: 1px solid rgba(150, 217, 214, 0.45);
+}
+
+.stat_bar_ice {
+    background: linear-gradient(90deg, rgb(100, 210, 235), rgb(180, 255, 255));
+    box-shadow: 0 0 12px rgba(130, 230, 255, 0.65);
+}
+
+.stats_sum_ice td {
+    border-top: 1px solid rgba(150, 217, 214, 0.28);
+}
+
+.stats_sum_ice .stat_value {
+    color: rgb(159, 250, 255);
+}
+
+.evolution_ice {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(150, 217, 214, 0.48);
+    box-shadow: inset 0 0 46px rgba(130, 230, 255, 0.08);
+}
+
+.card_hover_ice:hover {
+    transform: scale(1.01);
+    border-color: rgba(159, 250, 255, 0.75);
+    box-shadow:
+        0 0 28px rgba(130, 230, 255, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(130, 230, 255, 0.12);
+}
+
+.card_hover_ice:hover img {
+    filter: drop-shadow(0 10px 12px rgba(130, 230, 255, 0.55));
+}
+
+.type_fighting {
+    border: 2px solid rgb(168, 83, 34);
+    background-image: url(../assets/images/fighting_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_fighting {
+    border: 2px solid rgb(168, 83, 34);
+    box-shadow:
+        0 0 24px rgba(168, 83, 34, 0.24),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/fighting_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_fighting p {
+    color: rgb(255, 221, 184);
+}
+
+.dialog_type_fighting h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_fighting,
+.type_fighting h2,
+.evolution_arrow_fighting {
+    color: rgb(255, 170, 90);
+}
+
+.icon_fighting {
+    filter: drop-shadow(0 0 10px rgba(255, 145, 65, 0.5));
+}
+
+.border_fighting {
+    background: rgba(18, 10, 6, 0.62);
+    border: 1px solid rgba(190, 96, 38, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(255, 135, 48, 0.10);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_fighting {
+    border: 1px solid rgba(190, 96, 38, 0.45);
+}
+
+.info_table_fighting td {
+    border-bottom: 1px solid rgba(190, 96, 38, 0.28);
+}
+
+.info_table_fighting td:first-child {
+    border-right: 1px solid rgba(190, 96, 38, 0.34);
+}
+
+.stat_bar_wrapper_fighting {
+    border: 1px solid rgba(190, 96, 38, 0.45);
+}
+
+.stat_bar_fighting {
+    background: linear-gradient(90deg, rgb(150, 62, 28), rgb(255, 142, 58));
+    box-shadow: 0 0 12px rgba(255, 130, 45, 0.62);
+}
+
+.stats_sum_fighting td {
+    border-top: 1px solid rgba(194, 46, 40, 0.28);
+}
+
+.stats_sum_fighting .stat_value {
+    color: rgb(255, 154, 72);
+}
+
+.evolution_fighting {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(194, 46, 40, 0.48);
+    box-shadow: inset 0 0 46px rgba(255, 70, 60, 0.08);
+}
+
+.card_hover_fighting:hover {
+    transform: scale(1.01);
+    border-color: rgba(255, 81, 74, 0.75);
+    box-shadow:
+        0 0 28px rgba(255, 70, 60, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(255, 70, 60, 0.12);
+}
+
+.card_hover_fighting:hover img {
+    filter: drop-shadow(0 10px 12px rgba(255, 70, 60, 0.55));
+}
+
+.type_poison {
+    border: 2px solid rgb(163, 62, 161);
+    background-image: url(../assets/images/poison_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_poison {
+    border: 2px solid rgb(163, 62, 161);
+    box-shadow:
+        0 0 24px rgba(163, 62, 161, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/poison_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_poison p {
+    color: rgb(243, 210, 255);
+}
+
+.dialog_type_poison h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_poison,
+.type_poison h2,
+.evolution_arrow_poison {
+    color: rgb(217, 107, 219);
+}
+
+.icon_poison {
+    filter: drop-shadow(0 0 10px rgba(190, 80, 210, 0.45));
+}
+
+.border_poison {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(163, 62, 161, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(190, 80, 210, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_poison {
+    border: 1px solid rgba(163, 62, 161, 0.45);
+}
+
+.info_table_poison td {
+    border-bottom: 1px solid rgba(163, 62, 161, 0.28);
+}
+
+.info_table_poison td:first-child {
+    border-right: 1px solid rgba(163, 62, 161, 0.34);
+}
+
+.stat_bar_wrapper_poison {
+    border: 1px solid rgba(163, 62, 161, 0.45);
+}
+
+.stat_bar_poison {
+    background: linear-gradient(90deg, rgb(150, 55, 170), rgb(217, 107, 219));
+    box-shadow: 0 0 12px rgba(190, 80, 210, 0.65);
+}
+
+.stats_sum_poison td {
+    border-top: 1px solid rgba(163, 62, 161, 0.28);
+}
+
+.stats_sum_poison .stat_value {
+    color: rgb(217, 107, 219);
+}
+
+.evolution_poison {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(163, 62, 161, 0.48);
+    box-shadow: inset 0 0 46px rgba(190, 80, 210, 0.08);
+}
+
+.card_hover_poison:hover {
+    transform: scale(1.01);
+    border-color: rgba(217, 107, 219, 0.75);
+    box-shadow:
+        0 0 28px rgba(190, 80, 210, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(190, 80, 210, 0.12);
+}
+
+.card_hover_poison:hover img {
+    filter: drop-shadow(0 10px 12px rgba(190, 80, 210, 0.55));
+}
+
+.type_ground {
+    border: 2px solid rgb(226, 191, 101);
+    background-image: url(../assets/images/ground_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_ground {
+    border: 2px solid rgb(226, 191, 101);
+    box-shadow:
+        0 0 24px rgba(226, 191, 101, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/ground_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_ground p {
+    color: rgb(255, 240, 199);
+}
+
+.dialog_type_ground h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_ground,
+.type_ground h2,
+.evolution_arrow_ground {
+    color: rgb(232, 199, 106);
+}
+
+.icon_ground {
+    filter: drop-shadow(0 0 10px rgba(210, 165, 75, 0.45));
+}
+
+.border_ground {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(226, 191, 101, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(210, 165, 75, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_ground {
+    border: 1px solid rgba(226, 191, 101, 0.45);
+}
+
+.info_table_ground td {
+    border-bottom: 1px solid rgba(226, 191, 101, 0.28);
+}
+
+.info_table_ground td:first-child {
+    border-right: 1px solid rgba(226, 191, 101, 0.34);
+}
+
+.stat_bar_wrapper_ground {
+    border: 1px solid rgba(226, 191, 101, 0.45);
+}
+
+.stat_bar_ground {
+    background: linear-gradient(90deg, rgb(190, 135, 55), rgb(232, 199, 106));
+    box-shadow: 0 0 12px rgba(210, 165, 75, 0.65);
+}
+
+.stats_sum_ground td {
+    border-top: 1px solid rgba(226, 191, 101, 0.28);
+}
+
+.stats_sum_ground .stat_value {
+    color: rgb(232, 199, 106);
+}
+
+.evolution_ground {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(226, 191, 101, 0.48);
+    box-shadow: inset 0 0 46px rgba(210, 165, 75, 0.08);
+}
+
+.card_hover_ground:hover {
+    transform: scale(1.01);
+    border-color: rgba(232, 199, 106, 0.75);
+    box-shadow:
+        0 0 28px rgba(210, 165, 75, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(210, 165, 75, 0.12);
+}
+
+.card_hover_ground:hover img {
+    filter: drop-shadow(0 10px 12px rgba(210, 165, 75, 0.55));
+}
+
+.type_flying {
+    border: 2px solid rgb(169, 143, 243);
+    background-image: url(../assets/images/grass_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_flying {
+    border: 2px solid rgb(169, 143, 243);
+    box-shadow:
+        0 0 24px rgba(169, 143, 243, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/flying_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_flying p {
+    color: rgb(238, 231, 255);
+}
+
+.dialog_type_flying h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_flying,
+.type_flying h2,
+.evolution_arrow_flying {
+    color: rgb(187, 165, 255);
+}
+
+.icon_flying {
+    filter: drop-shadow(0 0 10px rgba(165, 135, 255, 0.45));
+}
+
+.border_flying {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(169, 143, 243, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(165, 135, 255, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_flying {
+    border: 1px solid rgba(169, 143, 243, 0.45);
+}
+
+.info_table_flying td {
+    border-bottom: 1px solid rgba(169, 143, 243, 0.28);
+}
+
+.info_table_flying td:first-child {
+    border-right: 1px solid rgba(169, 143, 243, 0.34);
+}
+
+.stat_bar_wrapper_flying {
+    border: 1px solid rgba(169, 143, 243, 0.45);
+}
+
+.stat_bar_flying {
+    background: linear-gradient(90deg, rgb(130, 105, 230), rgb(187, 165, 255));
+    box-shadow: 0 0 12px rgba(165, 135, 255, 0.65);
+}
+
+.stats_sum_flying td {
+    border-top: 1px solid rgba(169, 143, 243, 0.28);
+}
+
+.stats_sum_flying .stat_value {
+    color: rgb(187, 165, 255);
+}
+
+.evolution_flying {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(169, 143, 243, 0.48);
+    box-shadow: inset 0 0 46px rgba(165, 135, 255, 0.08);
+}
+
+.card_hover_flying:hover {
+    transform: scale(1.01);
+    border-color: rgba(187, 165, 255, 0.75);
+    box-shadow:
+        0 0 28px rgba(165, 135, 255, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(165, 135, 255, 0.12);
+}
+
+.card_hover_flying:hover img {
+    filter: drop-shadow(0 10px 12px rgba(165, 135, 255, 0.55));
+}
+
+.type_psychic {
+    border: 2px solid rgb(249, 85, 135);
+    background-image: url(../assets/images/psychic_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_psychic {
+    border: 2px solid rgb(249, 85, 135);
+    box-shadow:
+        0 0 24px rgba(249, 85, 135, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/psychic_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_psychic p {
+    color: rgb(255, 212, 228);
+}
+
+.dialog_type_psychic h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_psychic,
+.type_psychic h2,
+.evolution_arrow_psychic {
+    color: rgb(255, 111, 160);
+}
+
+.icon_psychic {
+    filter: drop-shadow(0 0 10px rgba(255, 85, 150, 0.45));
+}
+
+.border_psychic {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(249, 85, 135, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(255, 85, 150, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_psychic {
+    border: 1px solid rgba(249, 85, 135, 0.45);
+}
+
+.info_table_psychic td {
+    border-bottom: 1px solid rgba(249, 85, 135, 0.28);
+}
+
+.info_table_psychic td:first-child {
+    border-right: 1px solid rgba(249, 85, 135, 0.34);
+}
+
+.stat_bar_wrapper_psychic {
+    border: 1px solid rgba(249, 85, 135, 0.45);
+}
+
+.stat_bar_psychic {
+    background: linear-gradient(90deg, rgb(235, 65, 125), rgb(255, 111, 160));
+    box-shadow: 0 0 12px rgba(255, 85, 150, 0.65);
+}
+
+.stats_sum_psychic td {
+    border-top: 1px solid rgba(249, 85, 135, 0.28);
+}
+
+.stats_sum_psychic .stat_value {
+    color: rgb(255, 111, 160);
+}
+
+.evolution_psychic {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(249, 85, 135, 0.48);
+    box-shadow: inset 0 0 46px rgba(255, 85, 150, 0.08);
+}
+
+.card_hover_psychic:hover {
+    transform: scale(1.01);
+    border-color: rgba(255, 111, 160, 0.75);
+    box-shadow:
+        0 0 28px rgba(255, 85, 150, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(255, 85, 150, 0.12);
+}
+
+.card_hover_psychic:hover img {
+    filter: drop-shadow(0 10px 12px rgba(255, 85, 150, 0.55));
+}
+
+.type_bug {
+    border: 2px solid rgb(166, 185, 26);
+    background-image: url(../assets/images/bug_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_bug {
+    border: 2px solid rgb(166, 185, 26);
+    box-shadow:
+        0 0 24px rgba(166, 185, 26, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/bug_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_bug p {
+    color: rgb(242, 247, 190);
+}
+
+.dialog_type_bug h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_bug,
+.type_bug h2,
+.evolution_arrow_bug {
+    color: rgb(200, 216, 51);
+}
+
+.icon_bug {
+    filter: drop-shadow(0 0 10px rgba(175, 195, 40, 0.45));
+}
+
+.border_bug {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(166, 185, 26, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(175, 195, 40, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_bug {
+    border: 1px solid rgba(166, 185, 26, 0.45);
+}
+
+.info_table_bug td {
+    border-bottom: 1px solid rgba(166, 185, 26, 0.28);
+}
+
+.info_table_bug td:first-child {
+    border-right: 1px solid rgba(166, 185, 26, 0.34);
+}
+
+.stat_bar_wrapper_bug {
+    border: 1px solid rgba(166, 185, 26, 0.45);
+}
+
+.stat_bar_bug {
+    background: linear-gradient(90deg, rgb(135, 160, 20), rgb(200, 216, 51));
+    box-shadow: 0 0 12px rgba(175, 195, 40, 0.65);
+}
+
+.stats_sum_bug td {
+    border-top: 1px solid rgba(166, 185, 26, 0.28);
+}
+
+.stats_sum_bug .stat_value {
+    color: rgb(200, 216, 51);
+}
+
+.evolution_bug {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(166, 185, 26, 0.48);
+    box-shadow: inset 0 0 46px rgba(175, 195, 40, 0.08);
+}
+
+.card_hover_bug:hover {
+    transform: scale(1.01);
+    border-color: rgba(200, 216, 51, 0.75);
+    box-shadow:
+        0 0 28px rgba(175, 195, 40, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(175, 195, 40, 0.12);
+}
+
+.card_hover_bug:hover img {
+    filter: drop-shadow(0 10px 12px rgba(175, 195, 40, 0.55));
+}
+
+.type_rock {
+    border: 2px solid rgb(182, 161, 54);
+    background-image: url(../assets/images/rock_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_rock {
+    border: 2px solid rgb(182, 161, 54);
+    box-shadow:
+        0 0 24px rgba(182, 161, 54, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/rock_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_rock p {
+    color: rgb(244, 233, 189);
+}
+
+.dialog_type_rock h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_rock,
+.type_rock h2,
+.evolution_arrow_rock {
+    color: rgb(212, 189, 85);
+}
+
+.icon_rock {
+    filter: drop-shadow(0 0 10px rgba(190, 165, 70, 0.45));
+}
+
+.border_rock {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(182, 161, 54, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(190, 165, 70, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_rock {
+    border: 1px solid rgba(182, 161, 54, 0.45);
+}
+
+.info_table_rock td {
+    border-bottom: 1px solid rgba(182, 161, 54, 0.28);
+}
+
+.info_table_rock td:first-child {
+    border-right: 1px solid rgba(182, 161, 54, 0.34);
+}
+
+.stat_bar_wrapper_rock {
+    border: 1px solid rgba(182, 161, 54, 0.45);
+}
+
+.stat_bar_rock {
+    background: linear-gradient(90deg, rgb(155, 130, 45), rgb(212, 189, 85));
+    box-shadow: 0 0 12px rgba(190, 165, 70, 0.65);
+}
+
+.stats_sum_rock td {
+    border-top: 1px solid rgba(182, 161, 54, 0.28);
+}
+
+.stats_sum_rock .stat_value {
+    color: rgb(212, 189, 85);
+}
+
+.evolution_rock {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(182, 161, 54, 0.48);
+    box-shadow: inset 0 0 46px rgba(190, 165, 70, 0.08);
+}
+
+.card_hover_rock:hover {
+    transform: scale(1.01);
+    border-color: rgba(212, 189, 85, 0.75);
+    box-shadow:
+        0 0 28px rgba(190, 165, 70, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(190, 165, 70, 0.12);
+}
+
+.card_hover_rock:hover img {
+    filter: drop-shadow(0 10px 12px rgba(190, 165, 70, 0.55));
+}
+
+.type_ghost {
+    border: 2px solid rgb(115, 87, 151);
+    background-image: url(../assets/images/ghost_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_ghost {
+    border: 2px solid rgb(115, 87, 151);
+    box-shadow:
+        0 0 24px rgba(115, 87, 151, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/ghost_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_ghost p {
+    color: rgb(229, 215, 255);
+}
+
+.dialog_type_ghost h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_ghost,
+.type_ghost h2,
+.evolution_arrow_ghost {
+    color: rgb(164, 123, 219);
+}
+
+.icon_ghost {
+    filter: drop-shadow(0 0 10px rgba(140, 100, 200, 0.45));
+}
+
+.border_ghost {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(115, 87, 151, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(140, 100, 200, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_ghost {
+    border: 1px solid rgba(115, 87, 151, 0.45);
+}
+
+.info_table_ghost td {
+    border-bottom: 1px solid rgba(115, 87, 151, 0.28);
+}
+
+.info_table_ghost td:first-child {
+    border-right: 1px solid rgba(115, 87, 151, 0.34);
+}
+
+.stat_bar_wrapper_ghost {
+    border: 1px solid rgba(115, 87, 151, 0.45);
+}
+
+.stat_bar_ghost {
+    background: linear-gradient(90deg, rgb(95, 70, 150), rgb(164, 123, 219));
+    box-shadow: 0 0 12px rgba(140, 100, 200, 0.65);
+}
+
+.stats_sum_ghost td {
+    border-top: 1px solid rgba(115, 87, 151, 0.28);
+}
+
+.stats_sum_ghost .stat_value {
+    color: rgb(164, 123, 219);
+}
+
+.evolution_ghost {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(115, 87, 151, 0.48);
+    box-shadow: inset 0 0 46px rgba(140, 100, 200, 0.08);
+}
+
+.card_hover_ghost:hover {
+    transform: scale(1.01);
+    border-color: rgba(164, 123, 219, 0.75);
+    box-shadow:
+        0 0 28px rgba(140, 100, 200, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(140, 100, 200, 0.12);
+}
+
+.card_hover_ghost:hover img {
+    filter: drop-shadow(0 10px 12px rgba(140, 100, 200, 0.55));
+}
+
+.type_dragon {
+    border: 2px solid rgb(111, 53, 252);
+    background-image: url(../assets/images/dragon_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_dragon {
+    border: 2px solid rgb(111, 53, 252);
+    box-shadow:
+        0 0 24px rgba(111, 53, 252, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/dragon_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_dragon p {
+    color: rgb(222, 212, 255);
+}
+
+.dialog_type_dragon h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_dragon,
+.type_dragon h2,
+.evolution_arrow_dragon {
+    color: rgb(143, 104, 255);
+}
+
+.icon_dragon {
+    filter: drop-shadow(0 0 10px rgba(120, 80, 255, 0.45));
+}
+
+.border_dragon {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(111, 53, 252, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(120, 80, 255, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_dragon {
+    border: 1px solid rgba(111, 53, 252, 0.45);
+}
+
+.info_table_dragon td {
+    border-bottom: 1px solid rgba(111, 53, 252, 0.28);
+}
+
+.info_table_dragon td:first-child {
+    border-right: 1px solid rgba(111, 53, 252, 0.34);
+}
+
+.stat_bar_wrapper_dragon {
+    border: 1px solid rgba(111, 53, 252, 0.45);
+}
+
+.stat_bar_dragon {
+    background: linear-gradient(90deg, rgb(90, 50, 220), rgb(143, 104, 255));
+    box-shadow: 0 0 12px rgba(120, 80, 255, 0.65);
+}
+
+.stats_sum_dragon td {
+    border-top: 1px solid rgba(111, 53, 252, 0.28);
+}
+
+.stats_sum_dragon .stat_value {
+    color: rgb(143, 104, 255);
+}
+
+.evolution_dragon {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(111, 53, 252, 0.48);
+    box-shadow: inset 0 0 46px rgba(120, 80, 255, 0.08);
+}
+
+.card_hover_dragon:hover {
+    transform: scale(1.01);
+    border-color: rgba(143, 104, 255, 0.75);
+    box-shadow:
+        0 0 28px rgba(120, 80, 255, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(120, 80, 255, 0.12);
+}
+
+.card_hover_dragon:hover img {
+    filter: drop-shadow(0 10px 12px rgba(120, 80, 255, 0.55));
+}
+
+.type_dark {
+    border: 2px solid rgb(112, 87, 70);
+    background-image: url(../assets/images/dark_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_dark {
+    border: 2px solid rgb(112, 87, 70);
+    box-shadow:
+        0 0 24px rgba(112, 87, 70, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/dark_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_dark p {
+    color: rgb(232, 217, 207);
+}
+
+.dialog_type_dark h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_dark,
+.type_dark h2,
+.evolution_arrow_dark {
+    color: rgb(176, 138, 112);
+}
+
+.icon_dark {
+    filter: drop-shadow(0 0 10px rgba(145, 110, 90, 0.45));
+}
+
+.border_dark {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(112, 87, 70, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(145, 110, 90, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_dark {
+    border: 1px solid rgba(112, 87, 70, 0.45);
+}
+
+.info_table_dark td {
+    border-bottom: 1px solid rgba(112, 87, 70, 0.28);
+}
+
+.info_table_dark td:first-child {
+    border-right: 1px solid rgba(112, 87, 70, 0.34);
+}
+
+.stat_bar_wrapper_dark {
+    border: 1px solid rgba(112, 87, 70, 0.45);
+}
+
+.stat_bar_dark {
+    background: linear-gradient(90deg, rgb(90, 68, 55), rgb(176, 138, 112));
+    box-shadow: 0 0 12px rgba(145, 110, 90, 0.65);
+}
+
+.stats_sum_dark td {
+    border-top: 1px solid rgba(112, 87, 70, 0.28);
+}
+
+.stats_sum_dark .stat_value {
+    color: rgb(176, 138, 112);
+}
+
+.evolution_dark {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(112, 87, 70, 0.48);
+    box-shadow: inset 0 0 46px rgba(145, 110, 90, 0.08);
+}
+
+.card_hover_dark:hover {
+    transform: scale(1.01);
+    border-color: rgba(176, 138, 112, 0.75);
+    box-shadow:
+        0 0 28px rgba(145, 110, 90, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(145, 110, 90, 0.12);
+}
+
+.card_hover_dark:hover img {
+    filter: drop-shadow(0 10px 12px rgba(145, 110, 90, 0.55));
+}
+
+.type_steel {
+    border: 2px solid rgb(183, 183, 206);
+    background-image: url(../assets/images/steel_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_steel {
+    border: 2px solid rgb(183, 183, 206);
+    box-shadow:
+        0 0 24px rgba(183, 183, 206, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/steel_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_steel p {
+    color: rgb(240, 240, 255);
+}
+
+.dialog_type_steel h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_steel,
+.type_steel h2,
+.evolution_arrow_steel {
+    color: rgb(212, 212, 234);
+}
+
+.icon_steel {
+    filter: drop-shadow(0 0 10px rgba(180, 190, 220, 0.45));
+}
+
+.border_steel {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(183, 183, 206, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(180, 190, 220, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_steel {
+    border: 1px solid rgba(183, 183, 206, 0.45);
+}
+
+.info_table_steel td {
+    border-bottom: 1px solid rgba(183, 183, 206, 0.28);
+}
+
+.info_table_steel td:first-child {
+    border-right: 1px solid rgba(183, 183, 206, 0.34);
+}
+
+.stat_bar_wrapper_steel {
+    border: 1px solid rgba(183, 183, 206, 0.45);
+}
+
+.stat_bar_steel {
+    background: linear-gradient(90deg, rgb(140, 150, 180), rgb(212, 212, 234));
+    box-shadow: 0 0 12px rgba(180, 190, 220, 0.65);
+}
+
+.stats_sum_steel td {
+    border-top: 1px solid rgba(183, 183, 206, 0.28);
+}
+
+.stats_sum_steel .stat_value {
+    color: rgb(212, 212, 234);
+}
+
+.evolution_steel {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(183, 183, 206, 0.48);
+    box-shadow: inset 0 0 46px rgba(180, 190, 220, 0.08);
+}
+
+.card_hover_steel:hover {
+    transform: scale(1.01);
+    border-color: rgba(212, 212, 234, 0.75);
+    box-shadow:
+        0 0 28px rgba(180, 190, 220, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(180, 190, 220, 0.12);
+}
+
+.card_hover_steel:hover img {
+    filter: drop-shadow(0 10px 12px rgba(180, 190, 220, 0.55));
+}
+
+.type_fairy {
+    border: 2px solid rgb(214, 133, 173);
+    background-image: url(../assets/images/fairy_card_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_fairy {
+    border: 2px solid rgb(214, 133, 173);
+    box-shadow:
+        0 0 24px rgba(214, 133, 173, 0.18),
+        0 0 80px rgba(0, 0, 0, 0.75),
+        inset 0 0 80px rgba(0, 0, 0, 0.35);
+    background-image: url(../assets/images/fairy_dialog_bg.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.dialog_type_fairy p {
+    color: rgb(255, 225, 239);
+}
+
+.dialog_type_fairy h3 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.title_fairy,
+.type_fairy h2,
+.evolution_arrow_fairy {
+    color: rgb(240, 168, 200);
+}
+
+.icon_fairy {
+    filter: drop-shadow(0 0 10px rgba(230, 140, 185, 0.45));
+}
+
+.border_fairy {
+    background: rgba(8, 8, 10, 0.62);
+    border: 1px solid rgba(214, 133, 173, 0.56);
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.32),
+        inset 0 0 26px rgba(230, 140, 185, 0.08);
+    backdrop-filter: blur(3px);
+}
+
+.info_table_fairy {
+    border: 1px solid rgba(214, 133, 173, 0.45);
+}
+
+.info_table_fairy td {
+    border-bottom: 1px solid rgba(214, 133, 173, 0.28);
+}
+
+.info_table_fairy td:first-child {
+    border-right: 1px solid rgba(214, 133, 173, 0.34);
+}
+
+.stat_bar_wrapper_fairy {
+    border: 1px solid rgba(214, 133, 173, 0.45);
+}
+
+.stat_bar_fairy {
+    background: linear-gradient(90deg, rgb(210, 105, 160), rgb(240, 168, 200));
+    box-shadow: 0 0 12px rgba(230, 140, 185, 0.65);
+}
+
+.stats_sum_fairy td {
+    border-top: 1px solid rgba(214, 133, 173, 0.28);
+}
+
+.stats_sum_fairy .stat_value {
+    color: rgb(240, 168, 200);
+}
+
+.evolution_fairy {
+    background: rgba(8, 8, 10, 0.42);
+    border: 1px solid rgba(214, 133, 173, 0.48);
+    box-shadow: inset 0 0 46px rgba(230, 140, 185, 0.08);
+}
+
+.card_hover_fairy:hover {
+    transform: scale(1.01);
+    border-color: rgba(240, 168, 200, 0.75);
+    box-shadow:
+        0 0 28px rgba(230, 140, 185, 0.45),
+        0 14px 34px rgba(0, 0, 0, 0.36),
+        inset 0 0 26px rgba(230, 140, 185, 0.12);
+}
+
+.card_hover_fairy:hover img {
+    filter: drop-shadow(0 10px 12px rgba(230, 140, 185, 0.55));
+}
+
+@media (max-width: 1160px) {
+
+    .evolution_tree_wrapper,
+    .evolution_branch_step,
+    .evolution_branch_children {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pokemon_evolution_cards {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .evolution_step {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .evolution_arrow {
+        transform: rotate(90deg);
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 1028px) {
+    .dialog_pokemon_data {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .pokemon_details_dialog[open] {
+        width: calc(100vw - 10px);
+        padding: 10px 8px;
+    }
+
+    .pokemon_dialog {
+        padding: 16px 5px;
+        border-radius: 18px;
+    }
+
+    .dialog_top_wrapper {
+        gap: 20px;
+    }
+
+    .dialog_pokemon_data {
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .dialog_pokemon_img img {
+        width: min(100%, 390px);
+    }
+
+    .stats_table td:first-child {
+        width: 98px;
+    }
+
+    .stats_table .stat_value,
+    .stats_table .stat_max {
+        width: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pokemon_details_dialog[open] {
+        width: calc(100vw - 4px);
+        padding: 10px 5px;
+    }
+
+    .info_table td:first-child {
+        width: 50%;
+    }
+}
