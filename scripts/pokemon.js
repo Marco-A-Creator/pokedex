@@ -173,6 +173,6 @@ function renderTypeIcons(types) {
 }
 
 function handlePokemonError(searchResult, error) {
-    console.error(error);
+    
     searchResult.innerHTML = "";
 }
