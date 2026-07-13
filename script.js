@@ -2,7 +2,7 @@ let allPokemon = [];
 let allPokemonUpdated = [];
 let searchablePokemon = [];
 let loadedPokemonCards = [];
-const startValue = 20;
+const startValue = 10;
 let currentSearchId = 0;
 
 async function initPokemonDatabase() {
