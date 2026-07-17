@@ -22,7 +22,7 @@ function getSortedPokemonListTemplate(dataList) {
         ${renderPokemonList(dataList)}
         </div>
         <button data-id="load-more-button" class="load_more_button"onclick="loadMorePokemonCards()">
-            +20 Pokemon
+            +10 Pokemon
         </button>
     `;
 }
