@@ -19,10 +19,10 @@ This project was created as a mandatory assignment during the Frontend Developme
 
 Main application view displaying Pokémon cards loaded from the API.
 
-![Pokédex Overview](./assets/images/readme_cards.webp)
+![Pokédex Overview](./assets/images/poke-vorstellung.webp)
 
 ### Pokémon Details
 
 Detailed Pokémon information displayed in an interactive dialog.
 
-![Pokédex Details](./assets/images/readme_screen_turtok.webp)
+![Pokédex Details](./assets/images/poke-vorstellung2.webp)

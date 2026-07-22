@@ -9,63 +9,86 @@
     <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="./styles/variables.css">
-    <link rel="stylesheet" href="./styles/header.css">
-    <link rel="stylesheet" href="./styles/footer.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./styles/pokemonsters.css">
+    <link rel="stylesheet" href="./styles/dialog.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
 
     <script src="./scripts/templates.js" defer></script>
-    <script src="./scripts/pokemon.js" defer></script>
     <script src="./scripts/dialog.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 
-<body>
+<body onload="init()">
 
-    <body onload="initPokemonDatabase()">
-        <header>
-            <div class="header_wrapper">
-                <a href="#/index.html"><img src="./assets/icons/favicon.ico" alt="Pokeball">
-                    <h1>Pokédex</h1>
-                </a>
-                <div class="search desktop">
-                    <input data-id="search-input" id="pokemonSearch" oninput="searchPokemon()" type="text" value=""
-                        placeholder="Pokémon Namen eingeben (min. 3 Buchstaben)">
-                </div>
+    <header class="header">
+        <img src="./assets/images/pokeball_standard_metalic.webp" alt="Pokéball" class="pokeball-icon">
+
+        <div class="logo">
+            <h1>Pokédex</h1>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Pokémon suchen..." oninput="searchPokemon()">
+        </div>
+
+    </header>
+
+    <main id="content">
+        <!-- Suchnachricht wenn kein Ergebnis gefunden wurde -->
+        <p id="not-found" class="search-message d-none">
+            Kein Pokémon gefunden.
+        </p>
+
+        <!-- Pokémon Karten -->
+        <section id="card" class="pokemon-container">
+        </section>
+
+        <!-- Ladebutton -->
+        <div class="load-more-container">
+            <button id="load-more-button" onclick="loadMorePokemon()">
+                Mehr laden
+            </button>
+        </div>
+    </main>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay d-none" onclick="closeDialog()">
+
+        <div id="dialog" class="dialog" onclick="event.stopPropagation()">
+
+            <!-- Schließen -->
+            <button id="close-dialog-button" class="close-btn" onclick="closeDialog()">
+                ✕
+            </button>
+
+            <!-- Vorheriges Pokémon -->
+            <button id="prev-button" class="nav-btn left" onclick="showPreviousPokemon()">
+                &#10094;
+            </button>
+
+            <!-- Inhalt -->
+            <div id="dialogContent">
+
             </div>
-        </header>
 
-        <main data-id="content">
-            <section id="fetchPokemon" class="fetch_pokemon">
+            <!-- Nächstes Pokémon -->
+            <button id="next-button" class="nav-btn right" onclick="showNextPokemon()">
+                &#10095;
+            </button>
 
-            </section>
+        </div>
 
-            <dialog data-id="dialog" id="pokemonDetailsDialog" class="pokemon_details_dialog title_style"
-                onclick="closeDialog('pokemonDetailsDialog')">
-            </dialog>
-        </main>
+    </div>
 
-        <footer>
-            <div class="footer_wrapper">
-                <p>© created by Marco Abbt</p>
-                <ul class="footer_links">
-                    <li>
-                        <a href="#">Impressum</a>
-                    </li>
-                    <li>
-                        <a href="#">Datenschutz</a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
-
-        <nav class="mobile_nav">
-            <div class="search">
-                <input data-id="search-input-mobile" id="pokemonSearchMobile" oninput="searchPokemon()" type="text"
-                    value="" placeholder="Pokémon (min. 3 Buchstaben)">
-            </div>
-        </nav>
-    </body>
+    <footer>
+        <p>&copy; 2026 Pokédex</p>
+        <div>
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+        </div>
+    </footer>
+</body>
 
 </html>

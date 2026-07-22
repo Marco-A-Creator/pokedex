@@ -1,0 +1,111 @@
+/* =========================
+   Dialog
+========================= */
+
+.dialog {
+    background: white;
+    width: 450px;
+    max-width: 90%;
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    animation: popup .25s;
+}
+
+.dialog-top{
+    padding:25px;
+    color:white;
+    text-align:center;
+}
+
+.dialog-bottom{
+    background:white;
+    padding:20px;
+}
+
+@keyframes popup {
+
+    from {
+        transform: scale(.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+.close-btn {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    background: transparent;
+
+    border: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.nav-btn {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #ef5350;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.left {
+    left: -22px;
+}
+
+.right {
+    right: -22px;
+}
+.dialog img {
+    width: 220px;
+    display: block;
+    margin: auto;
+}
+
+.dialog h2 {
+    text-align: center;
+    margin-top: 15px;
+    text-transform: capitalize;
+}
+
+.dialog p {
+    margin: 10px 0;
+}
+
+.dialog .stats {
+    margin-top: 20px;
+}
+
+/* =========================
+   Utility
+========================= */
+
+.d-none {
+    display: none;
+}

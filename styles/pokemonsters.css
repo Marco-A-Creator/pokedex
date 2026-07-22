@@ -1,0 +1,126 @@
+/* =========================
+   Pokémon Grid
+========================= */
+
+.pokemon-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* =========================
+   Pokémon Card
+========================= */
+
+.card {
+    background: white;
+    border-radius: 18px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .18);
+}
+
+.card img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.card h2 {
+    margin-top: 10px;
+    text-transform: capitalize;
+    font-family: 'JetBrains Mono';
+}
+
+.pokemon-id {
+    color: gray;
+    font-size: 14px;
+}
+
+/* =========================
+   Typen
+========================= */
+
+.types {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.type {
+    color: white;
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =========================
+   Mehr laden
+========================= */
+
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.load-more-container button {
+    background: #ef5350;
+    color: white;
+
+    border: none;
+    padding: 14px 28px;
+
+    font-size: 18px;
+    font-family: 'JetBrains Mono';
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.load-more-container button:hover {
+    background: #d84343;
+}
+
+/* =========================
+   Overlay
+========================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+}
